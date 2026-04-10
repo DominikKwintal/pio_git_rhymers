@@ -1,21 +1,23 @@
 package edu.kis.vh.nursery;
+/**
+ * Klasa reprezentująca wyliczankę w oparciu o kolejkę FIFO.
+ */
+public class FIFORhymer extends DefaultCountingOutRhymer {
 
-public class FIFORhymer extends defaultCountingOutRhymer {
-
-    public defaultCountingOutRhymer temp = new defaultCountingOutRhymer();
-    
-    @Override
+    private final DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
+    /**
+     * Wyciąga element z wyliczanki zgodnie z zasadą FIFO.
+     * @return wartość z kolejki.
+     */
     public int countOut() {
         while (!callCheck())
-            
-        temp.countIn(super.countOut());
-        
+            temp.countIn(super.countOut());
+
         int ret = temp.countOut();
-        
+
         while (!temp.callCheck())
-            
-        countIn(temp.countOut());
-        
+            countIn(temp.countOut());
+
         return ret;
     }
 }
